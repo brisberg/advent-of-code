@@ -8,7 +8,7 @@ Your entries are provided in `input.txt`
 
 First idea is to sort the list into two lists above and blow half the target (`1010`). Then we can brute force comparing each pair of numbers from these lists.
 
-277 \* 1743 = 482811
+`277 * 1743 = 482811`
 
 ### Improvements
 

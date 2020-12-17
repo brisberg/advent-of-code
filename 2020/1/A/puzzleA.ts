@@ -19,8 +19,8 @@ export function computeResult(inputs: number[]): number {
   for (let i = 0; i < lower.length; i++) {
     for (let j = 0; j < upper.length; j++) {
       if (lower[i] + upper[j] === 2020) {
-        const product = lower[i] * upper[j]
-        console.log(`${lower[i]} * ${upper[j]} = ${product}`)
+        const product = lower[i] * upper[j];
+        console.log(`${lower[i]} * ${upper[j]} = ${product}`);
         return product;
       }
     }

@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as readline from 'readline';
-import {computeResult} from './puzzleA';
+import {computeResult} from './puzzleB';
 
 // Read all lines from input file as numbers into the `inputs` array
 const inputs: number[] = [];
