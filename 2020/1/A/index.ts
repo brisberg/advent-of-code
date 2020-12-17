@@ -5,7 +5,7 @@ import {computeResult} from './puzzleA';
 // Read all lines from input file as numbers into the `inputs` array
 const inputs: number[] = [];
 const reader = readline.createInterface({
-  input: fs.createReadStream('./input.txt'),
+  input: fs.createReadStream('./A/input.txt'),
 });
 
 reader.on('line', (line) => {
