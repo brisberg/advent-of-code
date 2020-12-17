@@ -1,7 +1,7 @@
 {
-  "name": "@brisberg/advent-of-code-1a",
+  "name": "@brisberg/advent-of-code-2020-1",
   "version": "1.0.0",
-  "description": "Solution to Advent of Code 2020 1a puzzle",
+  "description": "Solution to Advent of Code 2020 1 puzzle",
   "main": "index.js",
   "scripts": {
     "start:a": "ts-node A/index.ts",
