@@ -21,7 +21,7 @@ describe('parsePasswordAndPolicy', () => {
   });
 
   it('should throw error when input malformed', () => {
-    const badInput = '4-3-4 wd: abscrs343 ';
+    const badInput = '4-3-4 wd abscrs343 ';
 
     expect(() => parsePasswordAndPolicy(badInput)).toThrow();
   })
