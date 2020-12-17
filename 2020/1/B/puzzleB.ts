@@ -1,4 +1,8 @@
-/** Puzzle A package represents the algorithm solution to AoC-2020-1a */
+/** Puzzle B package represents the algorithm solution to AoC-2020-1a */
+export function puzzleB(inputs: string[]) {
+  const expenses = inputs.map((s) => parseInt(s));
+  return computeResult(expenses);
+}
 
 /**
  * computeResult takes an input array of numbers. The function searches through

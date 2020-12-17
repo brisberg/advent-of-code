@@ -1,8 +1,8 @@
-import {processPasswords} from './processPasswords';
+import {PasswordProcessor} from './passwordProcessor';
 import {validatePasswordA, validatePasswordB} from './validators';
 
-describe('processPasswords', () => {
-  describe('validatePasswordsA', () => {
+describe('PasswordProcessor', () => {
+  describe('with validatePasswordsA', () => {
     it('should count valid passwords', () => {
       const inputs = [
         '1-2 g: gg',            // valid
@@ -12,12 +12,12 @@ describe('processPasswords', () => {
         '6-8 j: gtkwwjjj',      // invalid
       ];
 
-      const count = processPasswords(inputs, validatePasswordA);
+      const count = PasswordProcessor(validatePasswordA)(inputs);
       expect(count).toEqual(3);
     });
   });
 
-  describe('validatePasswordsB', () => {
+  describe('with validatePasswordsB', () => {
     it('should count valid passwords', () => {
       const inputs = [
         '1-2 g: gg',  // invalid
@@ -26,7 +26,7 @@ describe('processPasswords', () => {
         '1-2 g: xx',  // invalid
       ];
 
-      const count = processPasswords(inputs, validatePasswordB);
+      const count = PasswordProcessor(validatePasswordB)(inputs);
       expect(count).toEqual(2);
     });
   });
