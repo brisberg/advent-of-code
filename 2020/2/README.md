@@ -53,4 +53,4 @@ Requiring very little changes, we can replace the validator function to check po
 
 Update: I misread the prompt. I thought _both_ positions needed to be the specified character. Actually _exactly one_ of the positions must be the character.
 
-Result: `Part B: Using positional policies: 337 / 1000 passwords are valid.`
+Result: `Part B: Using positional policies: 325 / 1000 passwords are valid.`
