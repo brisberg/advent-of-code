@@ -4,16 +4,15 @@
  * count the valid passwords.
  */
 
-import {Password, PasswordPolicy} from './models';
-import {parsePasswordAndPolicy} from './passwordParser';
-import {validatePassword} from './validatePassword';
+import {parsePasswordAndPolicy, Validator} from './password';
 
-export function processPasswords(inputs: string[]): number {
+export function processPasswords(
+    inputs: string[], validator: Validator): number {
   let count = 0;
 
   for (const input of inputs) {
     const [policy, password] = parsePasswordAndPolicy(input);
-    if (validatePassword(password, policy)) {
+    if (validator(password, policy)) {
       count++;
     }
   }

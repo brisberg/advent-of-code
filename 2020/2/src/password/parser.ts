@@ -3,10 +3,9 @@
  * database inputs into Password Policies and Passwords
  */
 
-import {Password, PasswordPolicy} from './models';
+import {Password, Policy} from './models';
 
-export function parsePasswordAndPolicy(input: string):
-    [PasswordPolicy, Password] {
+export function parsePasswordAndPolicy(input: string): [Policy, Password] {
   const parts = input.split(': ');
 
   if (parts.length !== 2) {
@@ -17,10 +16,10 @@ export function parsePasswordAndPolicy(input: string):
 
   const regex = /([0-9]*)-([0-9]*) ([a-z])/
   const matches = parts[0].match(regex);
-  const policy: PasswordPolicy = {
+  const policy: Policy = {
     char: matches[3],
-    min: parseInt(matches[1]),
-    max: parseInt(matches[2]),
+    first: parseInt(matches[1]),
+    second: parseInt(matches[2]),
   };
 
   return [policy, password];

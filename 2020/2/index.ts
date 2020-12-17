@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import * as readline from 'readline';
 
 import {processPasswords} from './src/processPasswords';
+import {validatePasswordA} from './src/validators/validatePassword';
 
 // Read all lines from input file as numbers into the `inputs` array
 const inputs: string[] = [];
@@ -14,7 +15,12 @@ reader.on('line', (line) => {
 });
 
 reader.on('close', () => {
-  const result = processPasswords(inputs);
-  console.log(result);
+  const resultA = processPasswords(inputs, validatePasswordA);
+  console.log(`Part A: Using min-max policies: ${resultA} / ${
+      inputs.length} passwords are valid.`);
+
+  // const resultB = processPasswords(inputs, validatePasswordB);
+  // console.log(`Part B: Using min-max policies: ${resultB} / ${
+  //     inputs.length} passwords are valid.`);
   return;
 });

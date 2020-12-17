@@ -1,4 +1,5 @@
-import {parsePasswordAndPolicy} from './passwordParser';
+import {Policy} from './models';
+import {parsePasswordAndPolicy} from './parser';
 
 describe('parsePasswordAndPolicy', () => {
   it('should parse the password string from input', () => {
@@ -10,10 +11,10 @@ describe('parsePasswordAndPolicy', () => {
 
   it('should parse the policy object from input', () => {
     const input = '4-9 w: wwprdwwwx';
-    const wantPolicy = {
+    const wantPolicy: Policy = {
       char: 'w',
-      min: 4,
-      max: 9,
+      first: 4,
+      second: 9,
     };
     const result = parsePasswordAndPolicy(input);
 
