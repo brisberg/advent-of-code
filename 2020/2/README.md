@@ -28,3 +28,5 @@ How many passwords are valid according to their policies?
 ## Solution
 
 Seems pretty straightforward. Iterate through the file and parse each line into a `policy` and a `password` section. Evaluate each password against its policy and count the valid passwords.
+
+Result: `564`

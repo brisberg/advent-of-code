@@ -1,21 +1,20 @@
 import * as fs from 'fs';
 import * as readline from 'readline';
 
-import {Password, PasswordPolicy} from './src/models';
-import {parsePasswordAndPolicy} from './src/passwordParser';
+import {processPasswords} from './src/processPasswords';
 
 // Read all lines from input file as numbers into the `inputs` array
-const inputs: Array<[PasswordPolicy, Password]> = [];
+const inputs: string[] = [];
 const reader = readline.createInterface({
   input: fs.createReadStream('./input.txt'),
 });
 
 reader.on('line', (line) => {
-  inputs.push(parsePasswordAndPolicy(line));
+  inputs.push(line);
 });
 
 reader.on('close', () => {
-  // const result = computeResult(inputs);
-  // console.log(result);
+  const result = processPasswords(inputs);
+  console.log(result);
   return;
 });
