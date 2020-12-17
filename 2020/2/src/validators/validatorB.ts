@@ -8,13 +8,12 @@ import {Validator} from './models';
 
 export const validatePasswordB: Validator =
     (password: Password, policy: Policy): boolean => {
-      if (password.charAt(policy.first - 1) !== policy.char) {
-        return false;
+      const charAtFirst = password.charAt(policy.first - 1) !== policy.char;
+      const charAtSecond = password.charAt(policy.second - 1) !== policy.char;
+
+      if ((charAtFirst && !charAtSecond) || (!charAtFirst && charAtSecond)) {
+        return true;
       }
 
-      if (password.charAt(policy.second - 1) !== policy.char) {
-        return false;
-      }
-
-      return true;
+      return false;
     }

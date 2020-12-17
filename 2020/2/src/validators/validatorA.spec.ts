@@ -1,42 +1,45 @@
-import {Policy} from '../password';
+import {TestCase, ValidatorTestCase} from './testing';
 import {validatePasswordA} from './validatorA';
 
 describe('validatePasswordA', () => {
-  it('should return true for a valid password', () => {
-    const password = 'aaa';
-    const policy: Policy = {
-      char: 'a',
-      first: 1,
-      second: 3,
-    };
+  const testCases: TestCase[] = [
+    [
+      'return true for a valid password', {
+        password: 'aaa',
+        policy: {
+          char: 'a',
+          first: 1,
+          second: 3,
+        },
+        result: true,
+      }
+    ],
+    [
+      'return false for password with less than min instances of character', {
+        password: 'abcdef',  // One 'a'
+        policy: {
+          char: 'a',
+          first: 2,
+          second: 3,
+        },
+        result: false,
+      }
+    ],
+    [
+      'return false for password with more than max instances of character', {
+        password: 'abacada',  // Four 'a's
+        policy: {
+          char: 'a',
+          first: 1,
+          second: 3,
+        },
+        result: false,
+      }
+    ],
+  ];
 
-    const result = validatePasswordA(password, policy);
-    expect(result).toBeTruthy();
+  it.each(testCases)('should %s', (name: string, test: ValidatorTestCase) => {
+    const result = validatePasswordA(test.password, test.policy);
+    expect(result).toBe(test.result);
   });
-
-  it('should return false for password with less than min instances of character',
-     () => {
-       const password = 'abcdef';  // One 'a'
-       const policy: Policy = {
-         char: 'a',
-         first: 2,
-         second: 3,
-       };
-
-       const result = validatePasswordA(password, policy);
-       expect(result).toBeFalsy();
-     });
-
-  it('should return false for password with more than max instances of character',
-     () => {
-       const password = 'abacada';  // Four 'a's
-       const policy: Policy = {
-         char: 'a',
-         first: 1,
-         second: 3,
-       };
-
-       const result = validatePasswordA(password, policy);
-       expect(result).toBeFalsy();
-     });
 });

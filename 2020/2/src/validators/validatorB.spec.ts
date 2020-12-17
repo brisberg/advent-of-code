@@ -15,8 +15,7 @@ describe('validatePasswordA', () => {
       }
     ],
     [
-      'return false for password with both positions containing the character',
-      {
+      'return false for password with the character at both position', {
         password: 'abba',
         policy: {
           char: 'a',
