@@ -4,8 +4,8 @@
   "description": "Solution to Advent of Code 2020 1a puzzle",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node index.ts",
-    "test": "jest"
+    "start:a": "ts-node A/index.ts",
+    "test:a": "jest A/*"
   },
   "repository": {
     "type": "git",
