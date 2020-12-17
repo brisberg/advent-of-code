@@ -5,7 +5,18 @@
  */
 
 import {Password, PasswordPolicy} from './models';
+import {parsePasswordAndPolicy} from './passwordParser';
+import {validatePassword} from './validatePassword';
 
 export function processPasswords(inputs: string[]): number {
-  return 0;
+  let count = 0;
+
+  for (const input of inputs) {
+    const [policy, password] = parsePasswordAndPolicy(input);
+    if (validatePassword(password, policy)) {
+      count++;
+    }
+  }
+
+  return count;
 }
