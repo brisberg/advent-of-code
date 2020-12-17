@@ -1,7 +1,7 @@
 # 2020 December 2 Puzzle
 
-`yarn start` - Run program to solve part A and part B.
-`yarn test` - Run tests for part A and part B.
+`npx ts-node index.ts` - Run program to solve part A and part B.
+`npx jest` - Run tests for part A and part B.
 
 ## Prompt A
 

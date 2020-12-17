@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+import * as path from 'path';
 import * as readline from 'readline';
 
 import {processPasswords} from './src/processPasswords';
@@ -7,7 +8,7 @@ import {validatePasswordA, validatePasswordB} from './src/validators';
 // Read all lines from input file as numbers into the `inputs` array
 const inputs: string[] = [];
 const reader = readline.createInterface({
-  input: fs.createReadStream('./input.txt'),
+  input: fs.createReadStream(path.resolve(__dirname, 'input.txt')),
 });
 
 reader.on('line', (line) => {

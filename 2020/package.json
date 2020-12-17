@@ -1,10 +1,10 @@
 {
-  "name": "@brisberg/advent-of-code-2020-2",
+  "name": "@brisberg/advent-of-code-2020",
   "version": "1.0.0",
-  "description": "Solution to Advent of Code 2020 2 puzzle",
-  "main": "index.js",
+  "description": "Solutions to Advent of Code 2020 Puzzles",
+  "private": true,
   "scripts": {
-    "start": "ts-node index.ts",
+    "start": "ts-node",
     "test": "jest"
   },
   "repository": {
