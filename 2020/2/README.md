@@ -1,8 +1,5 @@
 # 2020 December 2 Puzzle
 
-`npx ts-node index.ts` - Run program to solve part A and part B.
-`npx jest` - Run tests for part A and part B.
-
 ## Prompt A
 
 --- Day 2: Password Philosophy ---
