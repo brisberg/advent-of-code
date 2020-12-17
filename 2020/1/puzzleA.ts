@@ -5,5 +5,24 @@
  * the inputs for the pair which sum to 2020, then returns their product.
  */
 export function computeResult(inputs: number[]): number {
-  return 0;
+  const lower: number[] = [];
+  const upper: number[] = [];
+
+  for (const input of inputs) {
+    if (input < 1010) {
+      lower.push(input);
+    } else {
+      upper.push(input);
+    }
+  }
+
+  for (let i = 0; i < lower.length; i++) {
+    for (let j = 0; j < lower.length; j++) {
+      if (lower[i] + upper[j] === 2020) {
+        return lower[i] * upper[j];
+      }
+    }
+  }
+
+  return -1;
 }
