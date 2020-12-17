@@ -7,5 +7,11 @@ import {Password, PasswordPolicy} from './models';
 
 export function validatePassword(
     password: Password, policy: PasswordPolicy): boolean {
-  return false;
+  const count = password.split(policy.char).length - 1;
+
+  if (count < policy.min || count > policy.max) {
+    return false;
+  }
+
+  return true;
 }
