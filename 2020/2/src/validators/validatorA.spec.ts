@@ -1,5 +1,5 @@
 import {Policy} from '../password';
-import {validatePasswordA} from './validatePassword';
+import {validatePasswordA} from './validatorA';
 
 describe('validatePasswordA', () => {
   it('should return true for a valid password', () => {

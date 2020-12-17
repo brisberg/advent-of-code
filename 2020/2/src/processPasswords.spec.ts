@@ -1,5 +1,5 @@
 import {processPasswords} from './processPasswords';
-import {validatePasswordA} from './validators/validatePassword';
+import {validatePasswordA} from './validators/validatorA';
 
 describe('processPasswords', () => {
   describe('validatePasswordsA', () => {

@@ -1,6 +1,6 @@
 /**
- * ValidatePolicy package contains logic for validating if a password meets a
- * PasswordPolicy criteria.
+ * ValidatorA package contains logic for validating if a password meets a
+ * PasswordPolicy criteria based on min-max rules from PartA.
  */
 
 import {Password, Policy, Validator} from '../password';
