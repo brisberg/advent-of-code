@@ -1,0 +1,30 @@
+{
+  "name": "@brisberg/advent-of-code-2020-2",
+  "version": "1.0.0",
+  "description": "Solution to Advent of Code 2020 2 puzzle",
+  "main": "index.js",
+  "scripts": {
+    "start:a": "ts-node A/index.ts",
+    "test:a": "jest A/*",
+    "start:b": "ts-node B/index.ts",
+    "test:b": "jest B/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brisberg/advent-of-code.git"
+  },
+  "author": "Brandon Risberg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brisberg/advent-of-code/issues"
+  },
+  "homepage": "https://github.com/brisberg/advent-of-code#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.19",
+    "@types/node": "^14.14.14",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.4.4",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  }
+}
