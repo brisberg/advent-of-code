@@ -3,7 +3,8 @@
  * PasswordPolicy criteria based on positional rules from PartB.
  */
 
-import {Password, Policy, Validator} from '../password';
+import {Password, Policy} from '../password';
+import {Validator} from './models';
 
 export const validatePasswordB: Validator =
     (password: Password, policy: Policy): boolean => {

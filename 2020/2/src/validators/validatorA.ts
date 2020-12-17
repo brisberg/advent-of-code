@@ -3,7 +3,8 @@
  * PasswordPolicy criteria based on min-max rules from PartA.
  */
 
-import {Password, Policy, Validator} from '../password';
+import {Password, Policy} from '../password';
+import {Validator} from './models';
 
 export const validatePasswordA: Validator =
     (password: Password, policy: Policy): boolean => {

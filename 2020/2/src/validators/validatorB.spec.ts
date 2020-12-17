@@ -1,55 +1,71 @@
-import {Policy} from '../password';
+import {TestCase, ValidatorTestCase} from './testing';
 import {validatePasswordB} from './validatorB';
 
 describe('validatePasswordA', () => {
-  it('should return true for a valid password', () => {
-    const password = 'aba';
-    const policy: Policy = {
-      char: 'a',
-      first: 1,
-      second: 3,
-    };
+  const testCases: TestCase[] = [
+    [
+      'return false for password with the character at neither position', {
+        password: 'baab',
+        policy: {
+          char: 'a',
+          first: 1,
+          second: 4,
+        },
+        result: false,
+      }
+    ],
+    [
+      'return false for password with both positions containing the character',
+      {
+        password: 'abba',
+        policy: {
+          char: 'a',
+          first: 1,
+          second: 4,
+        },
+        result: false,
+      }
+    ],
+    [
+      'return true for password with only the character at first position',
+      {
+        password: 'abbb',  // No 'a' at second position
+        policy: {
+          char: 'a',
+          first: 1,
+          second: 4,
+        },
+        result: true,
+      }
+    ],
+    [
+      'return true for password with only the character at second position',
+      {
+        password: 'bbba',  // No 'a' at first position
+        policy: {
+          char: 'a',
+          first: 1,
+          second: 4,
+        },
+        result: true,
+      }
+    ],
+    [
+      'return true for valid password with with other instances of the character',
+      {
+        password: 'abbbaaaa',
+        policy: {
+          char: 'a',
+          first: 1,
+          second: 4,
+        },
+        result: true,
+      }
+    ]
+  ];
 
-    const result = validatePasswordB(password, policy);
-    expect(result).toBeTruthy();
+  it.each(testCases)('should %s', (name: string, test: ValidatorTestCase) => {
+    const result = validatePasswordB(test.password, test.policy);
+    expect(result).toBe(test.result);
   });
-
-  it('should return false for password without character at first position',
-     () => {
-       const password = 'bbba';  // No 'a' at first position
-       const policy: Policy = {
-         char: 'a',
-         first: 1,
-         second: 4,
-       };
-
-       const result = validatePasswordB(password, policy);
-       expect(result).toBeFalsy();
-     });
-
-  it('should return false for password without character at second position',
-     () => {
-       const password = 'abbb';  // No 'a' at second position
-       const policy: Policy = {
-         char: 'a',
-         first: 1,
-         second: 4,
-       };
-
-       const result = validatePasswordB(password, policy);
-       expect(result).toBeFalsy();
-     });
-
-  it('should return true for valid passwords with other instances of the character',
-     () => {
-       const password = 'abaabbbba';  // Has 'a' at position 1 and 4
-       const policy: Policy = {
-         char: 'a',
-         first: 1,
-         second: 4,
-       };
-
-       const result = validatePasswordB(password, policy);
-       expect(result).toBeTruthy();
-     });
 });

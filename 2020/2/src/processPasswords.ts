@@ -4,7 +4,8 @@
  * count the valid passwords.
  */
 
-import {parsePasswordAndPolicy, Validator} from './password';
+import {parsePasswordAndPolicy} from './password';
+import {Validator} from './validators';
 
 export function processPasswords(
     inputs: string[], validator: Validator): number {
