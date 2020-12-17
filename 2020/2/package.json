@@ -4,10 +4,8 @@
   "description": "Solution to Advent of Code 2020 2 puzzle",
   "main": "index.js",
   "scripts": {
-    "start:a": "ts-node A/index.ts",
-    "test:a": "jest A/*",
-    "start:b": "ts-node B/index.ts",
-    "test:b": "jest B/*"
+    "start": "ts-node index.ts",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
