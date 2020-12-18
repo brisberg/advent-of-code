@@ -34,6 +34,8 @@ How many bag colors can eventually contain at least one shiny gold bag?
 
 ## Solution
 
+This feels like a tree traveral problem. We can read in each rule and build up a tree of bag dependencies. Then we can start from a leaf (Gold Bag) and walk up the tree. Each bag on the paths to the root will be able to contain the given bag.
+
 ## Prompt B
 
 ## Solution
