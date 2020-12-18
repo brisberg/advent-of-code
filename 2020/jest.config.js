@@ -17,5 +17,5 @@ module.exports = {
   testMatch: ['**/*.spec.ts', '!**/node_modules/**', '!**/lib/**'],
 
   // Supresses console.log produced by code under test
-  // silent: true,
+  silent: true,
 };
