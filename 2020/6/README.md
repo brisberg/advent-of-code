@@ -44,6 +44,10 @@ For each group, count the number of questions to which anyone answered "yes". Wh
 
 ## Solution
 
+Read the lines into group (split by blank lines). Add each string character to a Set of strings. Flatten the sets back out into a answers string. Sum the lengths of all answers.
+
+Result: `7128`
+
 ## Prompt B
 
 ## Solution
