@@ -97,3 +97,10 @@ Fix the program so that it terminates normally by changing exactly one jmp (to n
 I suppose we could brute force it. Iterate through every `nop` and `jmp` instruction in the program. Switch them. And then run the program and see which program can successfully finish.
 
 There is likely a smarter version of this by statically analyzing the instruction set into some kind of AST. And use that to determine which branch went wrong.
+
+Results:
+
+```
+Swapped instruction 156 to 'nop -73' to create valid Program'. Final accumulator value was 1205
+1205
+```

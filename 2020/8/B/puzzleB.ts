@@ -24,13 +24,13 @@ export function puzzleB(inputs: string[]): number {
     }
 
     const newProgram = [
-      ...inputs.slice(0, i - 1),
+      ...inputs.slice(0, i),
       `${newInst.cmd} ${newInst.val}`,
       ...inputs.slice(i + 1),
     ];
 
     // Execute the new program
-    const processor = new Processor(inputs);
+    const processor = new Processor(newProgram);
 
     let lastResult: ExecutionResult = ExecutionResult.OK;
     while (lastResult === ExecutionResult.OK) {
