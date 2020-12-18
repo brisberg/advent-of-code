@@ -88,6 +88,8 @@ Simulate your seating area by applying the seating rules repeatedly until no sea
 
 ## Solution
 
+Maps
+
 ## Prompt B
 
 ## Solution
