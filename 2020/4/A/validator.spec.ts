@@ -1,18 +1,5 @@
-import {Passport} from './model';
-import {validate} from './validate';
-
-type ValidatorTestCase = [string, Passport, boolean];
-
-const validPassport: Passport = {
-  byr: 1937,
-  iyr: 2017,
-  eyr: 2020,
-  hgt: '183cm',
-  hcl: '#fffffd',
-  ecl: 'gry',
-  pid: 860033327,
-  cid: 147,
-};
+import {ValidatorTestCase, validPassport} from '../src/testing/testData';
+import {validate} from './validator';
 
 describe('Passport Validator', () => {
   const testCases: ValidatorTestCase[] = [

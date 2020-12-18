@@ -1,11 +1,12 @@
-import {Passport} from './model';
+import {Passport, PassportValidator} from '../src/passport/model';
 
 /**
- * validate return true if a given passport is valid (has all required fields).
+ * validate returns true if a given passport is valid (has all required fields).
  *
  * 'cid' is optional. As per the question prompt.
+ * This is specifically the implementation for PartA.
  */
-export function validate(passport: Passport): boolean {
+export const validate: PassportValidator = (passport: Passport): boolean => {
   if (passport.byr === undefined || passport.iyr === undefined ||
       passport.eyr === undefined || passport.hgt === undefined ||
       passport.hcl === undefined || passport.ecl === undefined ||

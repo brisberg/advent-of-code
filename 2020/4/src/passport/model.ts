@@ -9,3 +9,9 @@ export interface Passport {
   pid?: number;  // (Passport ID) Optional to be valid
   cid?: number;  // (Country ID)
 }
+
+/**
+ * PassportValidator is the typedef for a validator function. Returns true if
+ * the given passport passes all validation rules.
+ */
+export type PassportValidator = (passport: Passport) => boolean;
