@@ -73,3 +73,12 @@ In this example, a single shiny gold bag must contain 126 other bags.
 How many individual bags are required inside your single shiny gold bag?
 
 ## Solution
+
+Similar, except this time we tree walk the rules list down from the 'shiny gold' root. Counting up each sub bag along the way and multiplying by their counts. This can be done with simple tree recursion.
+
+Results:
+
+```
+'shiny gold' bags must contain a total of 38426 other bags
+38426
+```
