@@ -46,6 +46,8 @@ Run your copy of the boot code. Immediately before any instruction is executed a
 
 ## Solution
 
+Build a very simple processor with a limited instruction set (`acc`, `jmp`, `nop`). Keep track of all the program lines we have executed. Run the program, and force exit when we attempt to execute an instruction we have already executed.
+
 ## Prompt B
 
 ## Solution
