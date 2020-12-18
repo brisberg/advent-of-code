@@ -1,4 +1,4 @@
-import {parse} from './rule';
+import {parse} from '../src/rule';
 
 /**
  * Specialized PuzzleFunction for Puzzle 7.A.
