@@ -1,7 +1,7 @@
 import {ValidatorTestCase, validPassport} from '../src/testing/testData';
 import {validate} from './validator';
 
-describe('Passport Validator', () => {
+describe('Passport Validator A', () => {
   const testCases: ValidatorTestCase[] = [
     ['return true for full passports', validPassport, true],
     [

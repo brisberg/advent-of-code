@@ -2,14 +2,14 @@ import {ValidatorTestCase, validPassport} from '../src/testing/testData';
 
 import {EYE_COLORS, validate} from './validator';
 
-describe('Passport Validator', () => {
+describe('Passport Validator B', () => {
   it('should return true for full passports', () => {
     expect(validate(validPassport)).toBeTruthy();
   });
 
   it('should return true for valid passports missing "cid"', () => {
     const input = {...validPassport, cid: undefined};
-    expect(validate(validPassport)).toBeTruthy();
+    expect(validate(input)).toBeTruthy();
   })
 
   describe('Birth year field', () => {
@@ -39,7 +39,7 @@ describe('Passport Validator', () => {
     const testCases: ValidatorTestCase[] = [
       [
         'return true issue years between 2010 and 2020',
-        {...validPassport, iyr: 2021},
+        {...validPassport, iyr: 2015},
         true,
       ],
       [
@@ -49,7 +49,7 @@ describe('Passport Validator', () => {
       ],
       [
         'return false issue years after 2020',
-        {...validPassport, iyr: 2015},
+        {...validPassport, iyr: 2021},
         false,
       ],
     ];
@@ -160,11 +160,11 @@ describe('Passport Validator', () => {
         true,
       ];
     });
-    testCases = testCases.concat([
+    testCases = testCases.concat([[
       'return false for non-valid eye colors',
       {...validPassport, ecl: 'foo'},
       false,
-    ]);
+    ]]);
     it.each(testCases)('should %s', (name, input, expected) => {
       expect(validate(input)).toStrictEqual(expected);
     });

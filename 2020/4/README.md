@@ -127,3 +127,10 @@ Count the number of valid passports - those that have all required fields and va
 ## Solution
 
 Similar to #2, this program is nearly identical except with a more advanced validator.
+
+Result:
+
+```
+114/259 Passport entries are valid.
+114
+```
