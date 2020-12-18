@@ -50,6 +50,8 @@ The first step of attacking the weakness in the XMAS data is to find the first n
 
 ## Solution
 
+This question is a rotating cypher. We need to build a processor which can consume numbers in sequence and determine which numbers are valid.
+
 ## Prompt B
 
 ## Solution
