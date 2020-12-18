@@ -58,4 +58,40 @@ Starting at the top-left corner of your map and following a slope of right 3 and
 
 Fairly simple. Keep track of where we are in X,Y space. Loop over time, checking if our current position is a tree, then increasing X,Y based on the slope. Use X % MapWidth to simulate map tessellation.
 
-Result: 200 Trees Struck.
+Result:
+
+```
+Traveling with slope Right 3 / Down 1 results in striking 200 trees.
+200
+```
+
+## Prompt B
+
+--- Part Two ---
+Time to check the rest of the slopes - you need to minimize the probability of a sudden arboreal stop, after all.
+
+Determine the number of trees you would encounter if, for each of the following slopes, you start at the top-left corner and traverse the map all the way to the bottom:
+
+Right 1, down 1.
+Right 3, down 1. (This is the slope you already checked.)
+Right 5, down 1.
+Right 7, down 1.
+Right 1, down 2.
+In the above example, these slopes would find 2, 7, 3, 4, and 2 tree(s) respectively; multiplied together, these produce the answer 336.
+
+What do you get if you multiply together the number of trees encountered on each of the listed slopes?
+
+## Solution
+
+Call the same function for each of the given slopes and multiply their answers.
+
+Result:
+
+```
+Traveling with slope Right 1 / Down 1 results in striking 66 trees.
+Traveling with slope Right 3 / Down 1 results in striking 200 trees.
+Traveling with slope Right 5 / Down 1 results in striking 76 trees.
+Traveling with slope Right 7 / Down 1 results in striking 81 trees.
+Traveling with slope Right 1 / Down 2 results in striking 46 trees.
+3737923200
+```

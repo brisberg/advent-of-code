@@ -9,7 +9,7 @@ This year I have choosen to implement the majority of the puzzles in [TypeScript
 Individual puzzle projects can be executed from the root:
 
 `yarn start <num>/<part>`
-`yarn test <num>/<part>`
+`yarn test <num>`
 
 For example, to run the December 2nd Puzzle Part A use:
 

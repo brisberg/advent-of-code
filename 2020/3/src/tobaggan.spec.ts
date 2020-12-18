@@ -1,4 +1,4 @@
-import {calculateStruckTrees} from './puzzleA';
+import {calculateStruckTrees} from './toboggan';
 
 describe('puzzleA', () => {
   it('should throw error if map is empty', () => {
