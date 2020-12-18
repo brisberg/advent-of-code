@@ -5,5 +5,20 @@ export interface Rule {
 }
 
 export function parse(input: string): Rule {
-  return {label: 'red', contains: {}};
+  const [label, rest] = input.split(' bags contain ');
+  const rule: Rule = {label, contains: {}};
+
+  const subbags = rest.substr(0, rest.length - 1).split(', ');
+
+  if (subbags.length >= 1 && subbags[0] !== 'no other bags') {
+    subbags.forEach((subbag) => {
+      const parts = subbag.split(' ');
+      const count = parseInt(parts[0]);
+      const sublabel = parts.slice(1, -1).join(' ');
+
+      rule.contains[sublabel] = count;
+    });
+  }
+
+  return rule;
 }
