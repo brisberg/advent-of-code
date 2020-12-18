@@ -48,13 +48,13 @@ describe('Passport Validator', () => {
       false,
     ],
     [
-      'return false if missing cid field',
-      {...validPassport, cid: undefined},
+      'return false if missing optional pid field',
+      {...validPassport, pid: undefined},
       false,
     ],
     [
-      'return true if missing optional pid field',
-      {...validPassport, pid: undefined},
+      'return true if missing cid field',
+      {...validPassport, cid: undefined},
       true,
     ],
   ];
