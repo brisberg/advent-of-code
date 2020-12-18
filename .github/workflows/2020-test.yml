@@ -10,7 +10,7 @@ on:
       - "2020/**"
 
 jobs:
-  2020-tests:
+  2020_tests:
     runs-on: ubuntu-latest
 
     strategy:
