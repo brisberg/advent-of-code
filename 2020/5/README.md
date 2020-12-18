@@ -58,3 +58,7 @@ Your seat wasn't at the very front or back, though; the seats with IDs +1 and -1
 What is the ID of your seat?
 
 ## Solution
+
+So we have the IDs sorted, just iterate through and look for a gap.
+
+Result: `741`
