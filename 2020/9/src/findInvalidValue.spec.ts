@@ -1,4 +1,4 @@
-import {findInvalidValue} from './puzzleA';
+import {findInvalidValue} from './findInvalidValue';
 
 describe('findInvalidValue', () => {
   it('should execute program and return final value of accumulator', () => {
@@ -11,6 +11,6 @@ describe('findInvalidValue', () => {
     // sum of two of the previous 5 numbers; the only number that does not
     // follow this rule is 127.
     const result = findInvalidValue(inputs, 5);
-    expect(result).toEqual(127)
+    expect(result[0]).toEqual(127)
   });
 });

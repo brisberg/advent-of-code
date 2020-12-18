@@ -1,4 +1,4 @@
-import {CodeReader, DecodeResult} from '../src/code-reader';
+import {findInvalidValue} from '../src/findInvalidValue';
 
 /**
  * Specialized PuzzleFunction for Puzzle 9.A.
@@ -8,20 +8,7 @@ import {CodeReader, DecodeResult} from '../src/code-reader';
  * it.
  */
 export function puzzleA(inputs: string[]): number {
-  return findInvalidValue(inputs, 25);
-}
+  const result = findInvalidValue(inputs, 25);
 
-/** Generalized solver which takes a variable premable size */
-export function findInvalidValue(inputs: string[], preambleSize: number) {
-  const reader = new CodeReader(preambleSize);
-
-  for (let i = 0; i < inputs.length; i++) {
-    const value = parseInt(inputs[i]);
-    const result = reader.decode(value);
-
-    if (result === DecodeResult.INVALID) {
-      console.log(`First invalid value: ${value}`);
-      return value;
-    }
-  }
+  return result[0] || 0;
 }

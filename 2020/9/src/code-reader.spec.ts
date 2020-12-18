@@ -12,6 +12,7 @@ describe('CodeReader', () => {
     const reader = new CodeReader(1);
 
     expect(reader.decode(5)).toEqual(DecodeResult.PREAMBLE);
+    expect(reader.getKeys()).toStrictEqual([5]);
   });
 
   it('should begin decoding values after N preamble values', () => {
@@ -19,6 +20,7 @@ describe('CodeReader', () => {
 
     expect(reader.decode(1)).toEqual(DecodeResult.PREAMBLE);
     expect(reader.decode(2)).toEqual(DecodeResult.PREAMBLE);
+    expect(reader.getKeys()).toStrictEqual([1, 2]);
     expect(reader.decode(3)).not.toEqual(DecodeResult.PREAMBLE);
   });
 
@@ -29,6 +31,7 @@ describe('CodeReader', () => {
       reader = new CodeReader(5);
       // Load the preamble
       [1, 2, 3, 4, 5].forEach(reader.decode.bind(reader));
+      expect(reader.getKeys()).toStrictEqual([1, 2, 3, 4, 5]);
     });
 
     it('should return valid if value is a sum of two key values', () => {
@@ -41,28 +44,16 @@ describe('CodeReader', () => {
       expect(reader.decode(10)).toEqual(DecodeResult.INVALID);
     });
 
-    it('should add new values to key set', () => {
-      reader.decode(7);
-      // Keys = [2, 3, 4, 5, 7];
-
-      // 4 + 7 = 11;
-      expect(reader.decode(11)).toEqual(DecodeResult.VALID);
+    it('should rotate key set with the new valid value', () => {
+      // 2 + 5 = 7
+      expect(reader.decode(7)).toEqual(DecodeResult.VALID);
+      expect(reader.getKeys()).toStrictEqual([2, 3, 4, 5, 7]);
     });
 
-    it('should drop oldest keys as new values are decoded', () => {
-      reader.decode(7);
-      // Keys = [2, 3, 4, 5, 7];
-
-      // No pair sum to 3
-      expect(reader.decode(3)).toEqual(DecodeResult.INVALID);
-    });
-
-    it('should not rotate keys if value was INVALID', () => {
+    it('should NOT rotate key set for invalid value', () => {
+      // No pair sums to 11
       expect(reader.decode(11)).toEqual(DecodeResult.INVALID);
-
-      // Still Keys = [1, 2, 3, 4, 5];
-      // 1 + 2 = 3
-      expect(reader.decode(3)).toEqual(DecodeResult.VALID);
-    })
+      expect(reader.getKeys()).toStrictEqual([1, 2, 3, 4, 5]);
+    });
   })
 });

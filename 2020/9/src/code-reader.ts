@@ -19,6 +19,10 @@ export class CodeReader {
 
   public constructor(private preambleSize: number) {}
 
+  public getKeys(): number[] {
+    return this.keys;
+  }
+
   public decode(value: number): DecodeResult {
     if (isNaN(value)) {
       return DecodeResult.ERR_INVALID_ARG;
