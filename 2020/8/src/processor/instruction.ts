@@ -12,15 +12,21 @@ export interface Instruction {
  * parsed Instruction objects.
  */
 export function parseInstructions(inputs: string[]): Instruction[] {
-  return inputs.map((line) => {
-    const parts = line.split(' ');
+  return inputs.map(parseInstruction);
+}
 
-    if (parts.length !== 2) {
-      throw new Error(`Malformed Instruction: '${line}'`);
-    }
+/**
+ * parseInstructions takes a line of textual instructions and converts it to
+ * a parsed Instruction object.
+ */
+export function parseInstruction(input: string): Instruction {
+  const parts = input.split(' ');
 
-    return {
-      cmd: parts[0], val: parseInt(parts[1]),
-    }
-  });
+  if (parts.length !== 2) {
+    throw new Error(`Malformed Instruction: '${input}'`);
+  }
+
+  return {
+    cmd: parts[0], val: parseInt(parts[1]),
+  }
 }
