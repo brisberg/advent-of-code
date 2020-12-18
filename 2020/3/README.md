@@ -55,3 +55,7 @@ In this example, traversing the map using this slope would cause you to encounte
 Starting at the top-left corner of your map and following a slope of right 3 and down 1, how many trees would you encounter?
 
 ## Solution
+
+Fairly simple. Keep track of where we are in X,Y space. Loop over time, checking if our current position is a tree, then increasing X,Y based on the slope. Use X % MapWidth to simulate map tessellation.
+
+Result: 200 Trees Struck.
