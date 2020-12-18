@@ -1,7 +1,7 @@
 import {puzzleA} from './puzzleA';
 
 describe('PuzzleA', () => {
-  it('should count number of bags which contain "shiny gold" bags', () => {
+  it('should execute program and return final value of accumulator', () => {
     const inputs = [
       'nop +0',
       'acc +1',

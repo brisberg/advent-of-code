@@ -15,5 +15,8 @@ export function puzzleA(inputs: string[]): number {
     lastResult = processor.execute();
   }
 
+  console.log(`Program finished with code '${
+      ExecutionResult[lastResult]}'. Final accumulator value was ${
+      processor.getAcc()}`)
   return processor.getAcc();
 }

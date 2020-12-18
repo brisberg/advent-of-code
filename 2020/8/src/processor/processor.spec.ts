@@ -120,4 +120,68 @@ describe('Processor', () => {
       });
     });
   });
+
+  interface ProcessorTestCase {
+    program: string[];
+    lastResult: ExecutionResult;
+    acc: number;
+  }
+
+  describe('Test Programs', () => {
+    const testCases: Array<[string, ProcessorTestCase]> = [
+      [
+        'simple accumulation program', {
+          program: ['acc +1', 'acc +2', 'acc +3'],
+          lastResult: ExecutionResult.FINISHED,
+          acc: 6,
+        }
+      ],
+      [
+        'simple acc / no-op program', {
+          program: ['nop +1', 'acc +2', 'nop +3'],
+          lastResult: ExecutionResult.FINISHED,
+          acc: 2,
+        }
+      ],
+      [
+        'simple jump program', {
+          program: ['jmp +1', 'jmp +2', 'acc +3', 'nop +0'],
+          lastResult: ExecutionResult.FINISHED,
+          acc: 0,
+        }
+      ],
+      [
+        'simple loop program', {
+          program: ['acc +1', 'acc +2', 'jmp -2'],
+          lastResult: ExecutionResult.ERR_INFINITE_LOOP,
+          acc: 3,
+        }
+      ],
+      [
+        'malformed instruction', {
+          program: ['acc +1', 'foo +2', 'jmp -2'],
+          lastResult: ExecutionResult.ERR_INVALID_INST,
+          acc: 1,
+        }
+      ],
+      [
+        'malformed value', {
+          program: ['acc +1', 'acc +2', 'jmp -foo'],
+          lastResult: ExecutionResult.ERR_INVALID_INST,
+          acc: 3,
+        }
+      ]
+    ]
+    it.each(testCases)('should %s', (name, test) => {
+      const processor = new Processor(test.program);
+
+      let lastResult = ExecutionResult.OK;
+      while (lastResult === ExecutionResult.OK) {
+        lastResult = processor.execute();
+      }
+
+      expect(lastResult).toEqual(test.lastResult);
+      expect(processor.getAcc()).toEqual(test.acc);
+    });
+  });
 });

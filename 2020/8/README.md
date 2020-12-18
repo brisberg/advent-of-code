@@ -48,6 +48,13 @@ Run your copy of the boot code. Immediately before any instruction is executed a
 
 Build a very simple processor with a limited instruction set (`acc`, `jmp`, `nop`). Keep track of all the program lines we have executed. Run the program, and force exit when we attempt to execute an instruction we have already executed.
 
+Results:
+
+```
+Program finished with code 'ERR_INFINITE_LOOP'. Final accumulator value was 1134
+1134
+```
+
 ## Prompt B
 
 ## Solution
