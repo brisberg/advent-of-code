@@ -5,9 +5,12 @@ name: 2020 TypeScript/Yarn CI
 on:
   push:
     branches: [main]
+    paths:
+      # And only trigger when 2020 directory changes
+      - "2020/**"
 
 jobs:
-  test_lint:
+  2020-tests:
     runs-on: ubuntu-latest
 
     strategy:
@@ -18,6 +21,8 @@ jobs:
     steps:
       # Setup Runner with node
       - uses: actions/checkout@v2
+      - name: Switch to 2020 directory
+        run: cd 2020/
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
