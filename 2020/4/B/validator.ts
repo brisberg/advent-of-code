@@ -1,5 +1,8 @@
 import {Passport, PassportValidator} from '../src/passport/model';
 
+/** Valid Eye color codes */
+export const EYE_COLORS = ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth'];
+
 /**
  * validate returns true if a given passport is valid (has all required fields).
  *

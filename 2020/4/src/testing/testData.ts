@@ -11,6 +11,6 @@ export const validPassport: Passport = {
   hgt: '183cm',
   hcl: '#fffffd',
   ecl: 'gry',
-  pid: 860033327,
+  pid: '860033327',
   cid: 147,
 };

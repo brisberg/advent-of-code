@@ -6,8 +6,8 @@ export interface Passport {
   hgt?: string;  // (Height)
   hcl?: string;  // (Hair Color)
   ecl?: string;  // (Eye Color)
-  pid?: number;  // (Passport ID) Optional to be valid
-  cid?: number;  // (Country ID)
+  pid?: string;  // (Passport ID)
+  cid?: number;  // (Country ID) Optional to be valid
 }
 
 /**

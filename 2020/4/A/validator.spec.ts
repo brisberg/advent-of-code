@@ -45,7 +45,7 @@ describe('Passport Validator', () => {
       true,
     ],
   ];
-  it.each(testCases)('should %s', (name, test, expected) => {
-    expect(validate(test)).toStrictEqual(expected);
+  it.each(testCases)('should %s', (name, input, expected) => {
+    expect(validate(input)).toStrictEqual(expected);
   });
 });

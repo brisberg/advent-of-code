@@ -35,7 +35,7 @@ export function parse(input: string): Passport {
         passport.ecl = value;
         break;
       case 'pid':
-        passport.pid = parseInt(value);
+        passport.pid = value;
         break;
       case 'cid':
         passport.cid = parseInt(value);
