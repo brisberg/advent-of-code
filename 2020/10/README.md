@@ -89,6 +89,13 @@ I suppose this is another tree walk. We could construct a tree of possible conne
 
 Might be an easier way to do this. If we assume that we will never choose to step-down the joltage, we could simply order them lowest to highest. Assume that we use them in that order and count the differences in joltage.
 
+Results:
+
+```
+Using all 93 adapters, the joltage can be bridged with 65 one-hops, 0 two-hops, 29 three-hops.
+1885
+```
+
 ## Prompt B
 
 ## Solution
