@@ -4,7 +4,11 @@ This is the first year I am attempting [Advent of Code](https://adventofcode.com
 
 This year I have choosen to implement the majority of the puzzles in [TypeScript](https://www.typescriptlang.org/) with [Jest](https://jestjs.io/).
 
-## Commands
+## Getting Started
+
+Install dependencies with: `yarn install` at the root.
+
+### Commands
 
 Individual puzzle projects can be executed from the root:
 
