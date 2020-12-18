@@ -9,7 +9,9 @@ export function puzzleA(inputs: string[]): number {
   // Split data lines into Passport entries.
   const passportEntrys = readPassportEntries(inputs);
 
-  return passportEntrys.map((entry) => Passport.parse(entry))
-      .filter((pass) => Passport.validate(pass))
-      .length;
+  const valid = passportEntrys.map((entry) => Passport.parse(entry))
+                    .filter((pass) => Passport.validate(pass))
+                    .length;
+  console.log(`${valid}/${passportEntrys.length} Passport entries are valid.`);
+  return valid;
 }
