@@ -62,6 +62,7 @@ L.#.#..#..
 #L######L#
 #.LL###L.L
 #.#L###.##
+
 #.#L.L#.##
 #LLL#LL.L#
 L.L.L..#..
@@ -72,6 +73,7 @@ L.L.L..#..
 #L#LLLL#L#
 #.LLLLLL.L
 #.#L#L#.##
+
 #.#L.L#.##
 #LLL#LL.L#
 L.#.L..#..
@@ -82,13 +84,14 @@ L.#.L..#..
 #L#L##L#L#
 #.LLLLLL.L
 #.#L#L#.##
+
 At this point, something interesting happens: the chaos stabilizes and further applications of these rules cause no seats to change state! Once people stop moving around, you count 37 occupied seats.
 
 Simulate your seating area by applying the seating rules repeatedly until no seats change state. How many seats end up occupied?
 
 ## Solution
 
-Maps
+This problem is a modified version of the game of life. Should be pretty simple to produce a simulation which repeatedly applies the seat update rules until a static state is found. I should be sure to set a max iteration loop to avoid in infinite state.
 
 ## Prompt B
 
