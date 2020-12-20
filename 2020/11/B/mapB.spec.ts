@@ -1,19 +1,43 @@
-import {MapB} from './mapA';
+import {MapB} from './mapB';
 
-describe('MapA', () => {
-  it.todo(
-      'should calculate the number of neighbors of a cell (\'#\' cells)',
-      () => {
-        const map = new MapB([
-          '#.#',
-          '##.',
-          '#..',
-        ]);
+describe('MapB', () => {
+  it('should count the first neighbor in all 8 directions', () => {
+    const map = new MapB([
+      '.......#.',
+      '...#.....',
+      '.#.......',
+      '.........',
+      '..#L....#',
+      '....#....',
+      '.........',
+      '#........',
+      '...#.....',
+    ]);
 
-        expect(map.countNeighbors(0, 0)).toEqual(3);
-        expect(map.countNeighbors(0, 2)).toEqual(2);
-        expect(map.countNeighbors(2, 0)).toEqual(3);
-        expect(map.countNeighbors(2, 2)).toEqual(1);
-        expect(map.countNeighbors(1, 1)).toEqual(5);
-      });
+    expect(map.countNeighbors(4, 3)).toBe(8);
+  });
+
+  it('should only count the first seat in each direction', () => {
+    const map = new MapB([
+      '.............',
+      '.L.L.#.#.#.#.',
+      '.............',
+    ]);
+
+    expect(map.countNeighbors(1, 1)).toEqual(0);
+  });
+
+  it('should not count seats out of direct lines-of-sight', () => {
+    const map = new MapB([
+      '.##.##.',
+      '#.#.#.#',
+      '##...##',
+      '...L...',
+      '##...##',
+      '#.#.#.#',
+      '.##.##.',
+    ]);
+
+    expect(map.countNeighbors(3, 3)).toEqual(0);
+  });
 });

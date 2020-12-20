@@ -12,7 +12,7 @@ describe('Simulation', () => {
   ]);
 
   beforeEach(() => {
-    sim = new Simulation();
+    sim = new Simulation(0, 4);
   });
 
   it('should load a map and calculate map sizes', () => {

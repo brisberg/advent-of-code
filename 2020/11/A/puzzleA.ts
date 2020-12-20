@@ -7,7 +7,7 @@ import {MapA} from './mapA';
  * Sets up the simulation with MapA and default seat fill values.
  */
 export function puzzleA(inputs: string[]): number {
-  const sim = new Simulation();
+  const sim = new Simulation(0, 4);
   sim.loadMap(new MapA(inputs));
 
   let lastChanged = Infinity;

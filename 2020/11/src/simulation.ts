@@ -12,7 +12,7 @@ export class Simulation {
   private readonly SeatFillLimit: number;
   private readonly SeatVacateLimit: number;
 
-  public constructor(seatFillLimit = 0, seatVacateLimit = 4) {
+  public constructor(seatFillLimit: number, seatVacateLimit: number) {
     this.SeatFillLimit = seatFillLimit;
     this.SeatVacateLimit = seatVacateLimit;
   }
