@@ -10,11 +10,11 @@
  * querying and modifying that map.
  *
  */
-export class Map {
+export abstract class Map {
   // Local representation of the map.
   // Each string is a horizontal row of the map.
   // Each character is a cell in each column.
-  private map: string[] = [];
+  protected map: string[] = [];
 
   public constructor(map: string[]) {
     this.map = [...map];
@@ -60,20 +60,7 @@ export class Map {
   }
 
   /** Counts filled neighbots (includes the requested cell in the count) */
-  public countNeighbors(row: number, col: number): number {
-    const topRow = Math.max(row - 1, 0);
-    const bottomRow = Math.min(row + 1, this.getMapHeight() - 1);
-    const leftCol = Math.max(col - 1, 0);
-    const rightCol = Math.min(col + 1, this.getMapWidth() - 1);
-
-    return [
-      ...this.map.slice(topRow, bottomRow + 1)
-          .map((row) => row.slice(leftCol, rightCol + 1))
-          .join('')
-    ].reduce((count, char) => {
-      return char === '#' ? count + 1 : count;
-    }, 0);
-  }
+  public abstract countNeighbors(row: number, col: number): number;
 
   /** Get the number of filled seats in the current map */
   public countFilledSeats(): number {

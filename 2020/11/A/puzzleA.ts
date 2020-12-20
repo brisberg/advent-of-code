@@ -1,4 +1,5 @@
 import {Simulation} from '../src/simulation';
+import {MapA} from './mapA';
 
 /**
  * Specialized PuzzleFunction for Puzzle 10.A.
@@ -7,7 +8,7 @@ import {Simulation} from '../src/simulation';
  */
 export function puzzleA(inputs: string[]): number {
   const sim = new Simulation();
-  sim.loadMap(inputs);
+  sim.loadMap(new MapA(inputs));
 
   let lastChanged = Infinity;
   while (lastChanged !== 0) {

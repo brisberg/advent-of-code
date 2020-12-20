@@ -1,5 +1,12 @@
 import {Map} from './map';
 
+/** Fake Map implementation for testing */
+export class MapImpl extends Map {
+  public countNeighbors(row: number, col: number): number {
+    return 0;
+  }
+}
+
 describe('Map Class', () => {
   const defaultMap: string[] = [
     '#.##.',
@@ -8,7 +15,7 @@ describe('Map Class', () => {
   ];
 
   it('should load a map and calculate map sizes', () => {
-    const map = new Map(defaultMap);
+    const map = new MapImpl(defaultMap);
 
     expect(map.getTextMap()).toEqual(defaultMap);
     expect(map.getMapHeight()).toEqual(3);
@@ -16,7 +23,7 @@ describe('Map Class', () => {
   });
 
   it('should fetch the current value of a cell', () => {
-    const map = new Map(['.L', 'L#']);
+    const map = new MapImpl(['.L', 'L#']);
 
     expect(map.getCell(0, 0)).toEqual('.');
     expect(map.getCell(0, 1)).toEqual('L');
@@ -25,7 +32,7 @@ describe('Map Class', () => {
   });
 
   it('should set the value of a given cell', () => {
-    const map = new Map(['..', '..']);
+    const map = new MapImpl(['..', '..']);
 
     map.setCell(1, 1, 'L');
 
@@ -33,28 +40,14 @@ describe('Map Class', () => {
   });
 
   it('should return false when setting a non-length 1 cell value', () => {
-    const map = new Map(defaultMap);
+    const map = new MapImpl(defaultMap);
 
     expect(map.setCell(0, 0, 'foo')).toEqual(false);
-  })
+  });
 
   it(`should count number of filled ('#') seats`, () => {
-    const map = new Map(['L#.L#', '##L..']);
+    const map = new MapImpl(['L#.L#', '##L..']);
 
     expect(map.countFilledSeats()).toEqual(4);
   });
-
-  it('should calculate the number of neighbors of a cell (\'#\' cells)', () => {
-    const map = new Map([
-      '#.#',
-      '##.',
-      '#..',
-    ]);
-
-    expect(map.countNeighbors(0, 0)).toEqual(3);
-    expect(map.countNeighbors(0, 2)).toEqual(2);
-    expect(map.countNeighbors(2, 0)).toEqual(3);
-    expect(map.countNeighbors(2, 2)).toEqual(1);
-    expect(map.countNeighbors(1, 1)).toEqual(5);
-  })
 });

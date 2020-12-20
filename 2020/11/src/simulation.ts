@@ -4,15 +4,15 @@ import {Map} from './map';
 
 export class Simulation {
   // Array of strings representing the current state of the map.
-  private map: Map = new Map([]);
+  private map: Map;
   // Step count of simulation
   private time: number = 0;
 
   public constructor() {}
 
   /** Loads a copy of the given map into the simulator */
-  public loadMap(newMap: string[]): void {
-    this.map = new Map(newMap);
+  public loadMap(map: Map): void {
+    this.map = map;
     this.time = 0;
   }
 
