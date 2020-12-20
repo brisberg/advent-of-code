@@ -40,6 +40,13 @@ Figure out where the navigation instructions lead. What is the Manhattan distanc
 
 Pretty simple processor which can store the current position and direction of the ship, and can execute each of the instructions above.
 
+Results:
+
+```
+After executing all commands, the Ferry is at 678, -1780 facing East.
+2458
+```
+
 ## Prompt B
 
 ## Solution

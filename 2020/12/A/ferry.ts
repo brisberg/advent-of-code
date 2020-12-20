@@ -6,6 +6,22 @@ export enum Dir {
   West,
 }
 
+/** Mapping of Dir enum values to command strings */
+export const DirectionCommands: {[direction in Dir]: string} = {
+  0: 'N',
+  1: 'E',
+  2: 'S',
+  3: 'W'
+}
+
+/** Mapping of Dir enum values to display labels */
+export const DirectionLabels: {[direction in Dir]: string} = {
+  0: 'North',
+  1: 'East',
+  2: 'South',
+  3: 'West'
+}
+
 /** Position type represents an [X,Y] tuple. */
 export type Position = [number, number];
 
@@ -52,12 +68,8 @@ export class Ferry {
           this.orientation = (this.orientation - turns + 4) % 4;
         },
     'F': (dist: number) =>
-        this.rules[this.directionToLabel[this.orientation]].bind(this)(dist),
+        this.rules[DirectionCommands[this.orientation]].bind(this)(dist),
   };
-
-  /** Private mapping of Dir enum balues to direction labels */
-  private directionToLabel:
-      {[dir: number]: string} = {0: 'N', 1: 'E', 2: 'S', 3: 'W'}
 
   /** Executes a single instruction to move the Ship */
   public execute(instruction: string): void {
