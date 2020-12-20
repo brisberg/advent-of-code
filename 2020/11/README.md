@@ -93,6 +93,15 @@ Simulate your seating area by applying the seating rules repeatedly until no sea
 
 This problem is a modified version of the game of life. Should be pretty simple to produce a simulation which repeatedly applies the seat update rules until a static state is found. I should be sure to set a max iteration loop to avoid in infinite state.
 
+Results:
+
+```
+After 101 ticks, the map stabilized with 2329 seats filled.
+2329
+```
+
+A performance improvement can be made to the Map class. Instead of storing the map as a set of strings, we could encode it as a bit array, and use a bit mask to determine the value of each cell.
+
 ## Prompt B
 
 ## Solution

@@ -15,5 +15,5 @@ describe('PuzzleA', () => {
   it('should return 0 if no adapters are supplied', () => {
     const test = () => puzzleA([]);
     expect(test).toThrowError('No adapter joltages supplies.')
-  })
+  });
 });
