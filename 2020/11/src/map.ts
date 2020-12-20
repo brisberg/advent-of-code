@@ -70,4 +70,12 @@ export abstract class Map {
       }, 0);
     }, 0);
   }
+
+  /**
+   * Returns true if the given row and col are within the boundaries of the map
+   */
+  protected inBounds(row: number, col: number): boolean {
+    return row >= 0 && row < this.getMapHeight() && col >= 0 &&
+        col < this.getMapWidth();
+  }
 }

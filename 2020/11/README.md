@@ -220,3 +220,10 @@ Given the new visibility method and the rule change for occupied seats becoming 
 ## Solution
 
 Near the same as the previous one. Just need to swap out the "CountNeighbors" function and adjust the update limits in the simulation. I'll need to refactor a bit to make these two portions pluggable.
+
+Results:
+
+```
+After 87 ticks, the map stabilized with 2138 seats filled.
+2138
+```
