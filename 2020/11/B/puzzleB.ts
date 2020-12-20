@@ -1,14 +1,14 @@
 import {Simulation} from '../src/simulation';
-import {MapA} from './mapA';
+import {MapB} from './mapB';
 
 /**
- * Specialized PuzzleFunction for Puzzle 11.A.
+ * Specialized PuzzleFunction for Puzzle 11.B.
  *
- * Sets up the simulation with MapA and default seat fill values.
+ * Sets up the simulation with MapB and different seat fill values.
  */
-export function puzzleA(inputs: string[]): number {
-  const sim = new Simulation();
-  sim.loadMap(new MapA(inputs));
+export function puzzleB(inputs: string[]): number {
+  const sim = new Simulation(0, 5);
+  sim.loadMap(new MapB(inputs));
 
   let lastChanged = Infinity;
   while (lastChanged !== 0) {

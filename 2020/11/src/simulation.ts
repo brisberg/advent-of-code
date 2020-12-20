@@ -8,7 +8,14 @@ export class Simulation {
   // Step count of simulation
   private time: number = 0;
 
-  public constructor() {}
+  // Simulation Rules
+  private readonly SeatFillLimit: number;
+  private readonly SeatVacateLimit: number;
+
+  public constructor(seatFillLimit = 0, seatVacateLimit = 4) {
+    this.SeatFillLimit = seatFillLimit;
+    this.SeatVacateLimit = seatVacateLimit;
+  }
 
   /** Loads a copy of the given map into the simulator */
   public loadMap(map: Map): void {
@@ -51,14 +58,14 @@ export class Simulation {
         } else {
           const neighbors = this.map.countNeighbors(row, col);
           if (char === 'L') {
-            if (neighbors === 0) {
+            if (neighbors === this.SeatFillLimit) {
               nextMap.push('#');
               changes++;
             } else {
               nextMap.push('L')
             }
           } else if (char === '#') {
-            if (neighbors >= 5) {
+            if (neighbors >= this.SeatVacateLimit) {
               nextMap.push('L');
               changes++;
             } else {
