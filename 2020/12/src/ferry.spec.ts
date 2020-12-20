@@ -1,8 +1,11 @@
-import {Dir, Ferry} from './ferry';
+import {PartARules} from '../A/rules';
+import {Dir, Ferry, Rules} from './ferry';
+
+const emptyRules: Rules = {};
 
 describe('Ferry class', () => {
   it('should initialize with given Position and Direction', () => {
-    const ferry = new Ferry([1, 4], Dir.East);
+    const ferry = new Ferry([1, 4], Dir.East, emptyRules);
 
     expect(ferry.getPosition()).toEqual([1, 4]);
     expect(ferry.getDirection()).toEqual(Dir.East);
@@ -12,7 +15,7 @@ describe('Ferry class', () => {
     let ferry: Ferry;
 
     beforeEach(() => {
-      ferry = new Ferry([0, 0], Dir.North);
+      ferry = new Ferry([0, 0], Dir.North, PartARules);
     });
 
     it(`should move North given a 'N' instruction.`, () => {

@@ -25,23 +25,30 @@ export const DirectionLabels: {[direction in Dir]: string} = {
 /** Position type represents an [X,Y] tuple. */
 export type Position = [number, number];
 
+/** Rules objects provides a mapping of `cmd` strings to update functions. */
+export type Rules = {
+  [cmd: string]: (this: Ferry, magnitude: number) => void,
+};
+
 /**
  * Ferry class represents a ferry boat crossing the water in a storm. It
  * remembers its position and orientation and can execute movement instructions.
  *
  * Position is denoted relative to a cartisian origin.
- * North points "up" on the grid, corresponding to positive Y.
- * East points "right" on the grid, corresponding to positive X.
- * South points "down" on the grid, corresponding to negative Y.
- * West points "left" on the grid, corresponding to negative X.
+ * - North points "up" on the grid, corresponding to positive Y.
+ * - East points "right" on the grid, corresponding to positive X.
+ * - South points "down" on the grid, corresponding to negative Y.
+ * - West points "left" on the grid, corresponding to negative X.
  */
 export class Ferry {
-  private orientation: Dir;
-  private position: Position;
+  protected orientation: Dir;
+  protected position: Position;
+  private rules: Rules;
 
-  public constructor(position: Position, direction: Dir) {
+  public constructor(position: Position, direction: Dir, rules: Rules) {
     this.position = [position[0], position[1]];
     this.orientation = direction;
+    this.rules = rules;
   }
 
   public getDirection(): Dir {
@@ -51,25 +58,6 @@ export class Ferry {
   public getPosition(): Position {
     return this.position;
   }
-
-  private rules: {[cmd: string]: (this: Ferry, magnitude: number) => void} = {
-    'N': (dist: number) => this.position[1] += dist,
-    'E': (dist: number) => this.position[0] += dist,
-    'S': (dist: number) => this.position[1] -= dist,
-    'W': (dist: number) => this.position[0] -= dist,
-    'R':
-        (degrees: number) => {
-          const turns = Math.floor(degrees / 90);
-          this.orientation = (this.orientation + turns) % 4;
-        },
-    'L':
-        (degrees: number) => {
-          const turns = Math.floor(degrees / 90);
-          this.orientation = (this.orientation - turns + 4) % 4;
-        },
-    'F': (dist: number) =>
-        this.rules[DirectionCommands[this.orientation]].bind(this)(dist),
-  };
 
   /** Executes a single instruction to move the Ship */
   public execute(instruction: string): void {
