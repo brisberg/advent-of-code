@@ -78,3 +78,12 @@ Figure out where the navigation instructions actually lead. What is the Manhatta
 
 Basically the same simulation engine. Just need to add the concept of a Waypoint, and pass in different rules.
 We can adjust the rules of PartA to treat the waypoint always at Ship position + direction at distance of 1.
+
+I had to look up the rules for vector roration by 90d clockwise: `[x, y] + 90d = [y, -x]`
+
+Results:
+
+```
+After executing all commands, the Ferry is at 105444, -39673 facing 6,95.
+145117
+```

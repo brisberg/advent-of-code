@@ -1,6 +1,6 @@
-import {PartARules} from '../A/rules';
 import {Directions, Ferry} from '../src/ferry';
 import {manhattenDistance} from '../src/manhatten-distance';
+import {PartBRules} from './rules';
 
 /**
  * Specialized PuzzleFunction for Puzzle 12.B.
@@ -9,7 +9,7 @@ import {manhattenDistance} from '../src/manhatten-distance';
  * instructions, and reports the manhatten distance traveled.
  */
 export function puzzleB(inputs: string[]): number {
-  const ferry = new Ferry([0, 0], Directions.East, PartARules);
+  const ferry = new Ferry([0, 0], [10, 1], PartBRules);
 
   for (const instruction of inputs) {
     ferry.execute(instruction);
