@@ -53,6 +53,15 @@ Execute the initialization program. What is the sum of all values left in memory
 
 Need to make a fairly simple processor which can store a bit mask and an array of memory. Enable it to write to memory using the current bit mask.
 
+The ended up being more complicated because in Javascript bitwise operations only operate on 32 bit values. I had to split the value and mask into two masks (4-bit and 32-bit) and multiply on them separately.
+
+Results:
+
+```
+After executing all instructions, there are 399 values in Memory. The sum of these values is 12527062349305.
+12527062349305
+```
+
 ## Prompt B
 
 ## Solution
