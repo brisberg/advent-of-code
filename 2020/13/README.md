@@ -57,6 +57,13 @@ What is the ID of the earliest bus you can take to the airport multiplied by the
 
 This is a combinatorics and factorization problem. Basically, we can iterate forward in time from the starting point, and see which timestamp is first an even multiple of one of the bus times.
 
+Results:
+
+```
+Starting at 1000066, the first bus to leave for the airport is #41 at time 1000072.
+246
+```
+
 ## Prompt B
 
 ## Solution
