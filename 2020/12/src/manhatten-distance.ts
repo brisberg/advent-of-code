@@ -1,4 +1,4 @@
-import {Position} from '../A/ferry';
+import {Position} from './ferry';
 
 /**
  * Calculates the manhatten distance between the origin and the given position.

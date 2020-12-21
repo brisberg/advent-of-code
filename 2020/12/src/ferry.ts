@@ -1,25 +1,21 @@
-/** Dir represents a cardinal direction. */
-export enum Dir {
-  North = 0,
-  East,
-  South,
-  West,
+export type DirectionLabels = 'North'|'East'|'West'|'South';
+export type Dirs = 'N'|'E'|'S'|'W';
+export type Commands = 'R'|'L'|'F'|Dirs;
+
+/** Mapping of command Direction codes to direction offsets */
+export const DirCoords: {[label in Dirs]: Position} = {
+  N: [0, 1],
+  E: [1, 0],
+  S: [0, -1],
+  W: [-1, 0],
 }
 
-/** Mapping of Dir enum values to command strings */
-export const DirectionCommands: {[direction in Dir]: string} = {
-  0: 'N',
-  1: 'E',
-  2: 'S',
-  3: 'W'
-}
-
-/** Mapping of Dir enum values to display labels */
-export const DirectionLabels: {[direction in Dir]: string} = {
-  0: 'North',
-  1: 'East',
-  2: 'South',
-  3: 'West'
+/** Mapping of Human Readable identifiers to direction offsets */
+export const Directions: {[label in DirectionLabels]: Position} = {
+  North: DirCoords.N,
+  East: DirCoords.E,
+  South: DirCoords.S,
+  West: DirCoords.W,
 }
 
 /** Position type represents an [X,Y] tuple. */
@@ -27,7 +23,7 @@ export type Position = [number, number];
 
 /** Rules objects provides a mapping of `cmd` strings to update functions. */
 export type Rules = {
-  [cmd: string]: (this: Ferry, magnitude: number) => void,
+  [cmd in Commands]: (this: Ferry, magnitude: number) => void;
 };
 
 /**
@@ -41,18 +37,20 @@ export type Rules = {
  * - West points "left" on the grid, corresponding to negative X.
  */
 export class Ferry {
-  protected orientation: Dir;
+  // Current position of the ferry (relative to origin)
   protected position: Position;
+  // Current position of waypoint (relative to ferry)
+  protected waypoint: Position;
   private rules: Rules;
 
-  public constructor(position: Position, direction: Dir, rules: Rules) {
+  public constructor(position: Position, waypoint: Position, rules: Rules) {
     this.position = [position[0], position[1]];
-    this.orientation = direction;
+    this.waypoint = waypoint;
     this.rules = rules;
   }
 
-  public getDirection(): Dir {
-    return this.orientation;
+  public getDirection(): Position {
+    return this.waypoint;
   }
 
   public getPosition(): Position {

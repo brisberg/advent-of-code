@@ -1,5 +1,5 @@
 import {PartARules} from '../A/rules';
-import {Dir, DirectionLabels, Ferry} from '../src/ferry';
+import {Directions, Ferry} from '../src/ferry';
 import {manhattenDistance} from '../src/manhatten-distance';
 
 /**
@@ -9,7 +9,7 @@ import {manhattenDistance} from '../src/manhatten-distance';
  * instructions, and reports the manhatten distance traveled.
  */
 export function puzzleB(inputs: string[]): number {
-  const ferry = new Ferry([0, 0], Dir.East, PartARules);
+  const ferry = new Ferry([0, 0], Directions.East, PartARules);
 
   for (const instruction of inputs) {
     ferry.execute(instruction);
@@ -18,6 +18,6 @@ export function puzzleB(inputs: string[]): number {
   const position = ferry.getPosition();
   const direction = ferry.getDirection();
   console.log(`After executing all commands, the Ferry is at ${position[0]}, ${
-      position[1]} facing ${DirectionLabels[direction]}.`);
+      position[1]} facing ${direction}.`);
   return manhattenDistance(position);
 }

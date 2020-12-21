@@ -1,7 +1,7 @@
 import {puzzleB} from './puzzleB';
 
 describe('PuzzleA', () => {
-  it('should manhatten distance of Ferry after all instructions', () => {
+  it('should return manhatten distance of Ferry after all instructions', () => {
     const inputs = [
       'F10',
       'N3',

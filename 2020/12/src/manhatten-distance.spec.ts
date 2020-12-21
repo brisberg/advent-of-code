@@ -1,4 +1,4 @@
-import {Position} from '../A/ferry';
+import {Position} from './ferry';
 import {manhattenDistance} from './manhatten-distance';
 
 type TestCase = [string, ManhattenDistTestCase];
