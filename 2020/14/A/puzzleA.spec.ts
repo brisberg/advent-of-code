@@ -1,6 +1,6 @@
 import {puzzleA} from './puzzleA';
 
-describe('PuzzleA', () => {
+describe.skip('PuzzleA', () => {
   it('should process all instructions and return the sum of values in memory',
      () => {
        const inputs = [
