@@ -1,6 +1,6 @@
 # Advent of Code 2020
 
-![Puzzle Score](https://img.shields.io/badge/Puzzles-25/50-yellow)
+![Puzzle Score](https://img.shields.io/badge/Puzzles-27/50-yellow)
 ![Tests](https://github.com/brisberg/advent-of-code/workflows/2020%20Tests/badge.svg)
 
 This is the first year I am attempting [Advent of Code](https://adventofcode.com/) coding challenge.
