@@ -43,6 +43,39 @@ Given your starting numbers, what will be the 2020th number spoken?
 
 Create a simulation which keeps track of a map of numbers with their Game Time they were last spoken. The simulation can read in a set of starting numbers. It can also announce the next number, updating the ages map as appropriate.
 
+Results:
+
+```
+After 2020 steps, the last number spoken was 595.
+595
+```
+
 ## Prompt B
 
+--- Part Two ---
+Impressed, the Elves issue you a challenge: determine the 30000000th number spoken. For example, given the same starting numbers as above:
+
+Given 0,3,6, the 30000000th number spoken is 175594.
+Given 1,3,2, the 30000000th number spoken is 2578.
+Given 2,1,3, the 30000000th number spoken is 3544142.
+Given 1,2,3, the 30000000th number spoken is 261214.
+Given 2,3,1, the 30000000th number spoken is 6895259.
+Given 3,2,1, the 30000000th number spoken is 18.
+Given 3,1,2, the 30000000th number spoken is 362.
+Given your starting numbers, what will be the 30000000th number spoken?
+
 ## Solution
+
+This is one of the first questions that actually stresses performance. Simply increasing the step count will 'work' but it may not be fast enough. My machine was able to run my 6 test cases in 3.5 seconds at 300k steps, 50 seconds at 3M steps, and nearly 10 min at 30M steps.
+
+There must be a serious optimization I am missing.
+
+Swapping the storage class from a plain Object to a ES5 Map reducd the time significantly.
+
+Results:
+
+```
+After 30000000 steps, the last number spoken was 1708310.
+1708310
+✨  Done in 14.63s.
+```

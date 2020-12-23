@@ -11,7 +11,7 @@ export type TimeTuple = [number, number];
 export class Game {
   private time = 0;
   // Mapping of numbers to the game time they were last spoken
-  private memory: {[num: number]: TimeTuple} = {};
+  private memory: Map<number, TimeTuple> = new Map();
 
   public constructor(inputs: number[]) {
     inputs.forEach((num) => this.speak(num));
@@ -23,7 +23,7 @@ export class Game {
 
   /** Returns the number of turns since the given number was spoken */
   public timeSince(num: number): number {
-    const tuple = this.memory[num];
+    const tuple = this.memory.get(num);
 
     if (!tuple) {
       console.error(
@@ -35,11 +35,10 @@ export class Game {
   /** Speaks a given number, advancing game time and recording it in memory */
   public speak(num: number): void {
     this.time++;
-    const tuple = this.memory[num];
-    if (!tuple) {
-      this.memory[num] = [this.time, this.time];
+    if (!this.memory.has(num)) {
+      this.memory.set(num, [this.time, this.time]);
     } else {
-      this.memory[num] = [this.time, tuple[0]];
+      this.memory.set(num, [this.time, this.memory.get(num)[0]]);
     }
     return;
   }
