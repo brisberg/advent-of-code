@@ -41,6 +41,8 @@ Given your starting numbers, what will be the 2020th number spoken?
 
 ## Solution
 
+Create a simulation which keeps track of a map of numbers with their Game Time they were last spoken. The simulation can read in a set of starting numbers. It can also announce the next number, updating the ages map as appropriate.
+
 ## Prompt B
 
 ## Solution
