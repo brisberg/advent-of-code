@@ -1,11 +1,12 @@
 import {Processor} from '../src/processor';
-import {memWriter} from './mem-writer';
+import {memWriterA} from './mem-writer';
 
 describe('Memory Writer 14.A', () => {
   let processor: Processor;
 
   beforeEach(() => {
-    processor = new Processor(memWriter);
+    processor = new Processor(memWriterA);
+    processor.execute('mask = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
   });
 
   it('should process `mem` instruction to write to memory', () => {

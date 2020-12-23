@@ -14,7 +14,7 @@ export type MemoryWriter = (addr: number, value: number) => void;
  * instructions to modify memory.
  */
 export class Processor {
-  protected bitmask = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+  protected bitmask: string|null = null;
   protected memory: Memory = {};
 
   /**
@@ -24,11 +24,11 @@ export class Processor {
   protected memWriteHandler: MemoryWriter = () => {};
 
   public constructor(memWriteHandler: MemoryWriter) {
-    this.memWriteHandler = memWriteHandler;
+    this.memWriteHandler = memWriteHandler.bind(this);
   }
 
   /** Return the currently active Bit Mask */
-  public getBitMask(): string {
+  public getBitMask(): string|null {
     return this.bitmask;
   }
 
@@ -50,26 +50,5 @@ export class Processor {
       const val = parseInt(value);
       this.memWriteHandler(addr, val);
     }
-  }
-
-
-  /**
-   * Augments given value with the current Bit Mask
-   *
-   * Inspiration:
-   * https://github.com/DenverCoder1/Advent-of-Code-2020---Javascript/blob/main/Day%2014/part1.js#L551
-   */
-  protected applyBitMask(value: number): number {
-    const binV = value.toString(2).padStart(36, '0');
-    const chars = binV.split('');
-    const mask = this.bitmask;
-
-    for (let i = 0; i < mask.length; i++) {
-      if (mask[i] != 'X') {
-        chars[i] = mask[i];
-      }
-    }
-
-    return Number('0b' + chars.join(''));
   }
 }

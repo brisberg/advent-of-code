@@ -13,6 +13,6 @@ describe('PuzzleA', () => {
     // address 7) and 64 (at address 8) - producing a sum of 165.
 
     const result = puzzleA(inputs);
-    expect(result).toEqual(165)
+    expect(result).toEqual(165);
   });
 });

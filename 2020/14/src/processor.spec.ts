@@ -10,8 +10,7 @@ describe('Processor', () => {
   });
 
   it('should initialize with an empty Bit Mask', () => {
-    expect(processor.getBitMask())
-        .toEqual('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
+    expect(processor.getBitMask()).toBeNull();
   });
 
   it('should initialize with a bank memory bank', () => {

@@ -1,4 +1,5 @@
 import {Processor} from '../src/processor';
+import {memWriterB} from './mem-writer';
 
 /**
  * Specialized PuzzleFunction for Puzzle 14.B.
@@ -7,14 +8,14 @@ import {Processor} from '../src/processor';
  * all the values in memory.
  */
 export function puzzleB(inputs: string[]): number {
-  const processor = new Processor();
+  const processor = new Processor(memWriterB);
 
   for (const instruction of inputs) {
     processor.execute(instruction);
   }
 
   const memory = processor.getMemory();
-  console.log(memory);
+  // console.log(memory);
   const result = Object.values(memory).reduce((sum, value) => sum + value, 0)
 
   console.log(`After executing all instructions, there are ${
