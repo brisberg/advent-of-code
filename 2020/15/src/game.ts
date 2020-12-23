@@ -1,10 +1,3 @@
-// export interface TimeTuple {
-//   // Time stamp of the last time number was used
-//   time: number;
-//   // Time stamp of the time before that the number was used
-//   since: number;
-// }
-
 // TimeTuple represents a tuple of the last two previous times the number was
 // used. [0]: The latest time. [1]: The last time before that
 export type TimeTuple = [number, number];

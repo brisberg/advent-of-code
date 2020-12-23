@@ -1,12 +1,13 @@
 import {Sequence} from '../src/sequence';
 
 /**
- * Specialized PuzzleFunction for Puzzle 15.A.
+ * Specialized PuzzleFunction for Puzzle 15.B.
  *
  * Initialize a Game with the initial inputs. Repeatedly consider the last
- * number based on the puzzle rules. Report the 2020th number in the sequence.
+ * number based on the puzzle rules. Report the 30 millionth number in the
+ * sequence.
  */
-export function puzzleA(inputs: string[]): number {
+export function puzzleB(inputs: string[]): number {
   if (inputs.length !== 1) {
     throw new Error(
         'Malformed Input. Must be a single line of comma-separated numbers.');
@@ -16,7 +17,7 @@ export function puzzleA(inputs: string[]): number {
   const sequence = new Sequence(input);
 
   let result: number
-  for (let i = input.length + 1; i < 2020; i++) {
+  for (let i = input.length + 1; i < 30000000; i++) {
     result = sequence.next();
   }
 
