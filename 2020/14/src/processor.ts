@@ -1,17 +1,31 @@
 /** Typedef for Memory bank of a Processor */
 export type Memory = {
-  [addr: string]: number,
+  [addr: number]: number,
 };
+
+/**
+ * Type signature for a MemoryWriter function which writes the specified value
+ * to the specified memory address.
+ */
+export type MemoryWriter = (addr: number, value: number) => void;
 
 /**
  * Processor maintains a Bit Mask and a memory bank. Can process simple
  * instructions to modify memory.
  */
 export class Processor {
-  private bitmask = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
-  private memory: Memory = {};
+  protected bitmask = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+  protected memory: Memory = {};
 
-  public constructor() {}
+  /**
+   * Handler for writing a value to memory. Pass in a specific implementation
+   * for each puzzle.
+   */
+  protected memWriteHandler: MemoryWriter = () => {};
+
+  public constructor(memWriteHandler: MemoryWriter) {
+    this.memWriteHandler = memWriteHandler;
+  }
 
   /** Return the currently active Bit Mask */
   public getBitMask(): string {
@@ -32,9 +46,9 @@ export class Processor {
     if (cmd === 'mask') {
       this.bitmask = value;
     } else {
-      const addr = cmd.substring(4, cmd.length - 1);
-      const memVal = this.applyBitMask(parseInt(value));
-      this.memory[addr] = memVal;
+      const addr = parseInt(cmd.substring(4, cmd.length - 1));
+      const val = parseInt(value);
+      this.memWriteHandler(addr, val);
     }
   }
 
@@ -45,7 +59,7 @@ export class Processor {
    * Inspiration:
    * https://github.com/DenverCoder1/Advent-of-Code-2020---Javascript/blob/main/Day%2014/part1.js#L551
    */
-  private applyBitMask(value: number): number {
+  protected applyBitMask(value: number): number {
     const binV = value.toString(2).padStart(36, '0');
     const chars = binV.split('');
     const mask = this.bitmask;

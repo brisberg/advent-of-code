@@ -1,4 +1,5 @@
 import {Processor} from '../src/processor';
+import {memWriter} from './mem-writer';
 
 /**
  * Specialized PuzzleFunction for Puzzle 14.A.
@@ -7,7 +8,7 @@ import {Processor} from '../src/processor';
  * all the values in memory.
  */
 export function puzzleA(inputs: string[]): number {
-  const processor = new Processor();
+  const processor = new Processor(memWriter);
 
   for (const instruction of inputs) {
     processor.execute(instruction);
